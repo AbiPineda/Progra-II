@@ -5,6 +5,8 @@
  */
 package GuiaJFrame;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Abigail
@@ -139,6 +141,11 @@ public class login extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 102, 255));
         jButton1.setText("Iniciar Sesión");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(450, 270, 110, 40);
 
@@ -160,6 +167,31 @@ public class login extends javax.swing.JFrame {
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
 dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        String usuario = "";
+        char pase[] = jPasswordField1.getPassword();
+        String pass = new String(pase);
+        usuario = jTextField2.getText();
+        
+        if(usuario.equals("progra2020") && pass.equals("programacion")){
+            JOptionPane.showMessageDialog(null, "Correcto");
+            System.out.println("Bienvenido");
+            jTextField2.setText("");
+            jPasswordField1.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "Incorrecto");
+            System.out.println("Incorrecto");
+            jTextField2.setText("");
+            jPasswordField1.setText("");
+}
+
+
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

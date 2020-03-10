@@ -22,12 +22,14 @@ import javax.swing.JTextField;
 public class MiVentana extends JFrame {
 
     public MiVentana() {
-        super("Titulo de ventana");
-        setSize(400, 100);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new FlowLayout());
-        Container cp = getContentPane();
-        cp.add(new JLabel("Nombre :"));
+        super("Titulo de ventana"); //Heredar del Padre, y colocar Titulo.
+        setSize(400, 100); //Tamaño de la ventana
+        setResizable(false); //no se puede maximizar la pantalla
+        setLocationRelativeTo(null); //centrar ventana.
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Cerrar Ventana
+        setLayout(new FlowLayout()); //Gestor de Diseño
+        Container cp = getContentPane(); //Contenedor
+        cp.add(new JLabel("Nombre :")); 
         JTextField texto = new JTextField(20);
         cp.add(texto);
         JButton botonSaludo = new JButton("Saludar");
@@ -47,6 +49,8 @@ public class MiVentana extends JFrame {
         public void actionPerformed(ActionEvent e) {
             JOptionPane.showMessageDialog(null, "¡Hola, "
                     + cuadroTexto.getText() + "!");
+            cuadroTexto.setText("");
+            cuadroTexto.requestFocus();
         }
     }
 

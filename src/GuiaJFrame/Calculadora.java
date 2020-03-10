@@ -9,10 +9,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.HeadlessException;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import static java.lang.Double.parseDouble;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -85,6 +84,7 @@ public class Calculadora extends JFrame {
         nuevoBotonOperacion("CE");
 
         panel.add("East", panelOperaciones);
+        validate();
 
     }
 
@@ -119,11 +119,18 @@ public class Calculadora extends JFrame {
 
     // Gestiona las pulsaciones de teclas numéricas
     private void numeroPulsado(String digito) {
-        if (pantalla.getText().equals("0") || nuevaOperacion) {
-            pantalla.setText(digito);
-        } else {
-            pantalla.setText(pantalla.getText() + digito);
-        }
+  
+               
+            if (pantalla.getText().equals("0") || nuevaOperacion) {
+                if(!(pantalla.getText().contains(".")))
+                {
+                pantalla.setText(pantalla.getText() + digito);
+                }
+                pantalla.setText(digito);
+            } else {
+                pantalla.setText(pantalla.getText() + digito);
+            }
+        
         nuevaOperacion = false;
     }
 

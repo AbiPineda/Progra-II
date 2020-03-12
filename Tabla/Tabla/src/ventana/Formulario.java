@@ -1,22 +1,15 @@
 
 package ventana;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFormattedTextField;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.MaskFormatter;
-
 
 public class Formulario extends JFrame{
-    private SimpleDateFormat formato;
+  
     DefaultTableModel modelo;
-   
-    
+  
     public Formulario() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -33,6 +26,7 @@ public class Formulario extends JFrame{
         modelo.addColumn("Direccion");
         modelo.addColumn("Telefono");
         
+   
     }
 
    
@@ -201,13 +195,24 @@ public class Formulario extends JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-   
+   if(jTextFieldCarnet.getText().toString().isEmpty()||
+           jTextFieldNombre.getText().toString().isEmpty()||
+           jTextFieldApellido.getText().toString().isEmpty()||
+           jTextFieldFecha.getText().toString().isEmpty()||
+           jTextFieldDui.getText().toString().isEmpty()||
+           jTextFieldDireccion.getText().toString().isEmpty()||
+           jTextFieldTelefono.getText().toString().isEmpty())
+       {
+           JOptionPane.showMessageDialog(this, "Complete los campos vacios.","", JOptionPane.WARNING_MESSAGE);
+       }
+       else
+       {
         Object []object = new Object[8];
         object[0] = jTextFieldCarnet.getText();
         object[1] = jTextFieldNombre.getText(); 
         object[2] = jTextFieldApellido.getText(); 
         object[3] = jTextFieldFecha.getText(); 
-        object[4] = jTextFieldFecha.getText(); 
+        object[4] = jTextFieldDui.getText(); 
         object[5] = jComboBoxSexo.getSelectedItem(); 
         object[6] = jTextFieldDireccion.getText(); 
         object[7] = jTextFieldTelefono.getText(); 
@@ -215,7 +220,7 @@ public class Formulario extends JFrame{
         modelo.addRow(object);     
         
         limpiar();
-        
+       }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -231,7 +236,7 @@ public class Formulario extends JFrame{
         jTextFieldCarnet.setText("");
         jTextFieldNombre.setText(""); 
         jTextFieldApellido.setText(""); 
-        jTextFieldFecha.setText(""); 
+        jTextFieldDui.setText(""); 
         jTextFieldFecha.setText(""); 
         jComboBoxSexo.setSelectedIndex(0); 
         jTextFieldDireccion.setText(""); 
@@ -293,7 +298,5 @@ public class Formulario extends JFrame{
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 
-    private void validar(){
-    }
 
 }

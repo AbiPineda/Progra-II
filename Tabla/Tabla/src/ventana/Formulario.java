@@ -3,6 +3,8 @@ package ventana;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -30,6 +32,7 @@ public class Formulario extends JFrame{
         modelo.addColumn("Sexo");
         modelo.addColumn("Direccion");
         modelo.addColumn("Telefono");
+        
     }
 
    
@@ -45,16 +48,16 @@ public class Formulario extends JFrame{
         jLabel3 = new javax.swing.JLabel();
         jTextFieldApellido = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldDui = new javax.swing.JTextField();
+        jTextFieldDui = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldFecha = new javax.swing.JTextField();
+        jTextFieldFecha = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         jComboBoxSexo = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldDireccion = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextFieldTelefono = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
+        jTextFieldTelefono = new javax.swing.JFormattedTextField();
         jButtonGuardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
@@ -84,17 +87,23 @@ public class Formulario extends JFrame{
         jLabel4.setText("DUI");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jLabel4);
+
+        try {
+            jTextFieldDui.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jPanel1.add(jTextFieldDui);
 
         jLabel5.setText("Fecha de Nacimiento");
         jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jLabel5);
 
-        jTextFieldFecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFechaActionPerformed(evt);
-            }
-        });
+        try {
+            jTextFieldFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jPanel1.add(jTextFieldFecha);
 
         jLabel6.setText("Sexo");
@@ -112,17 +121,22 @@ public class Formulario extends JFrame{
         jLabel8.setText("Telefono");
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jLabel8);
-        jPanel1.add(jTextFieldTelefono);
+
+        try {
+            jTextFieldTelefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 124, Short.MAX_VALUE)
+            .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 31, Short.MAX_VALUE)
+            .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2);
@@ -192,7 +206,7 @@ public class Formulario extends JFrame{
         object[0] = jTextFieldCarnet.getText();
         object[1] = jTextFieldNombre.getText(); 
         object[2] = jTextFieldApellido.getText(); 
-        object[3] = jTextFieldDui.getText(); 
+        object[3] = jTextFieldFecha.getText(); 
         object[4] = jTextFieldFecha.getText(); 
         object[5] = jComboBoxSexo.getSelectedItem(); 
         object[6] = jTextFieldDireccion.getText(); 
@@ -201,6 +215,7 @@ public class Formulario extends JFrame{
         modelo.addRow(object);     
         
         limpiar();
+        
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -212,15 +227,11 @@ public class Formulario extends JFrame{
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextFieldFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFechaActionPerformed
-
-    }//GEN-LAST:event_jTextFieldFechaActionPerformed
-
     private void limpiar(){
         jTextFieldCarnet.setText("");
         jTextFieldNombre.setText(""); 
         jTextFieldApellido.setText(""); 
-        jTextFieldDui.setText(""); 
+        jTextFieldFecha.setText(""); 
         jTextFieldFecha.setText(""); 
         jComboBoxSexo.setSelectedIndex(0); 
         jTextFieldDireccion.setText(""); 
@@ -275,11 +286,14 @@ public class Formulario extends JFrame{
     private javax.swing.JTextField jTextFieldApellido;
     private javax.swing.JTextField jTextFieldCarnet;
     private javax.swing.JTextField jTextFieldDireccion;
-    private javax.swing.JTextField jTextFieldDui;
-    private javax.swing.JTextField jTextFieldFecha;
+    private javax.swing.JFormattedTextField jTextFieldDui;
+    private javax.swing.JFormattedTextField jTextFieldFecha;
     private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldTelefono;
+    private javax.swing.JFormattedTextField jTextFieldTelefono;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
+
+    private void validar(){
+    }
 
 }

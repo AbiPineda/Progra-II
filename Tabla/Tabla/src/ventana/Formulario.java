@@ -195,16 +195,17 @@ public class Formulario extends JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-   if(jTextFieldCarnet.getText().toString().isEmpty()||
-           jTextFieldNombre.getText().toString().isEmpty()||
-           jTextFieldApellido.getText().toString().isEmpty()||
-           jTextFieldFecha.getText().toString().isEmpty()||
-           jTextFieldDui.getText().toString().isEmpty()||
-           jTextFieldDireccion.getText().toString().isEmpty()||
-           jTextFieldTelefono.getText().toString().isEmpty())
+   if(jTextFieldCarnet.getText().isEmpty()||
+           jTextFieldNombre.getText().isEmpty()||
+           jTextFieldApellido.getText().isEmpty()||
+           jTextFieldFecha.getText().isEmpty()||
+           jTextFieldDui.getText().isEmpty()||
+           jTextFieldDireccion.getText().isEmpty()||
+           jTextFieldTelefono.getText().isEmpty())
        {
            JOptionPane.showMessageDialog(this, "Complete los campos vacios.","", JOptionPane.WARNING_MESSAGE);
        }
+   
        else
        {
         Object []object = new Object[8];

@@ -76,6 +76,12 @@ public class mascaras extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        filtroTelefono.setText("1212-1212");
+        filtroTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                filtroTelefonoMouseClicked(evt);
+            }
+        });
         filtroTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filtroTelefonoActionPerformed(evt);
@@ -87,6 +93,12 @@ public class mascaras extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        filtroDui.setText("12323123-3");
+        filtroDui.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                filtroDuiMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
         panelDatos.setLayout(panelDatosLayout);
@@ -202,6 +214,14 @@ public class mascaras extends javax.swing.JFrame {
     private void filtroTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroTelefonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_filtroTelefonoActionPerformed
+
+    private void filtroDuiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filtroDuiMouseClicked
+     filtroDui.setText("");
+    }//GEN-LAST:event_filtroDuiMouseClicked
+
+    private void filtroTelefonoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filtroTelefonoMouseClicked
+       filtroTelefono.setText("");
+    }//GEN-LAST:event_filtroTelefonoMouseClicked
 
     /**
      * @param args the command line arguments

@@ -20,8 +20,8 @@ public class Formulario extends JFrame{
         modelo.addColumn("Carnet");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellidos");
-        modelo.addColumn("Dui");
         modelo.addColumn("Fecha de Nacimiento");
+        modelo.addColumn("Dui");
         modelo.addColumn("Sexo");
         modelo.addColumn("Direccion");
         modelo.addColumn("Telefono");
@@ -87,6 +87,11 @@ public class Formulario extends JFrame{
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jTextFieldDui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDuiActionPerformed(evt);
+            }
+        });
         jPanel1.add(jTextFieldDui);
 
         jLabel5.setText("Fecha de Nacimiento");
@@ -204,9 +209,7 @@ public class Formulario extends JFrame{
            jTextFieldTelefono.getText().isEmpty())
        {
            JOptionPane.showMessageDialog(this, "Complete los campos vacios.","", JOptionPane.WARNING_MESSAGE);
-       }
-   
-       else
+       }else
        {
         Object []object = new Object[8];
         object[0] = jTextFieldCarnet.getText();
@@ -217,9 +220,7 @@ public class Formulario extends JFrame{
         object[5] = jComboBoxSexo.getSelectedItem(); 
         object[6] = jTextFieldDireccion.getText(); 
         object[7] = jTextFieldTelefono.getText(); 
-        
         modelo.addRow(object);     
-        
         limpiar();
        }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
@@ -232,6 +233,10 @@ public class Formulario extends JFrame{
             JOptionPane.showMessageDialog(this,"Debe seleccionar una fila");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextFieldDuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDuiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDuiActionPerformed
 
     private void limpiar(){
         jTextFieldCarnet.setText("");

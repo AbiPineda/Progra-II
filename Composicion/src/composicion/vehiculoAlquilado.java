@@ -18,9 +18,14 @@ public class vehiculoAlquilado {
     private int añoAlquiler;
     private int totalDiasAlquiler;
 
-    public vehiculoAlquilado(cliente cliente, vehiculo vehiculo, int diaAlquiler, int mesAlquiler, int añoAlquiler, int totalDiasAlquiler) {
-        this.cliente = cliente;
-        this.vehiculo = vehiculo;
+    public vehiculoAlquilado(
+            String dui, String nombre, String apellidos, 
+            String matricula, String marca, String modelo, String color, double tarifa, 
+            int diaAlquiler, int mesAlquiler, int añoAlquiler, int totalDiasAlquiler)
+    {
+        
+        this.cliente = new cliente(dui, nombre, apellidos);
+        this.vehiculo = new vehiculo(matricula, marca, modelo, color, tarifa);
         this.diaAlquiler = diaAlquiler;
         this.mesAlquiler = mesAlquiler;
         this.añoAlquiler = añoAlquiler;

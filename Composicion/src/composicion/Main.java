@@ -23,9 +23,12 @@ public class Main {
                 "Negro",
                 80.0);
 
-        cliente cliente1 = new cliente("12345678-9", "Juan", "Pérez");
+        
 
-        vehiculoAlquilado alquiler1 = new vehiculoAlquilado(cliente1, vehiculo1, 11, 11, 2011, 2);
+        vehiculoAlquilado alquiler1 = new vehiculoAlquilado(
+                "12345678-9" ,"Juan",  "Pérez",
+                "2345 JVM","SEAT", "León", "Negro", 8.0,
+                11, 11, 2011, 2);
 
         System.out.println("Vehículo alquilado");
  

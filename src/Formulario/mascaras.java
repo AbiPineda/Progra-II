@@ -42,6 +42,7 @@ public class mascaras extends javax.swing.JFrame {
         btAgregar = new javax.swing.JButton();
         filtroTelefono = new javax.swing.JFormattedTextField();
         filtroDui = new javax.swing.JFormattedTextField();
+        subtotal = new javax.swing.JLabel();
         panelTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabla = new javax.swing.JTable();
@@ -70,6 +71,11 @@ public class mascaras extends javax.swing.JFrame {
         jLabel7.setText("Fecha de Nacimiento:");
 
         btAgregar.setText("Agregar");
+        btAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAgregarActionPerformed(evt);
+            }
+        });
 
         try {
             filtroTelefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
@@ -99,6 +105,8 @@ public class mascaras extends javax.swing.JFrame {
                 filtroDuiMouseClicked(evt);
             }
         });
+
+        subtotal.setText("jLabel3");
 
         javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
         panelDatos.setLayout(panelDatosLayout);
@@ -141,7 +149,9 @@ public class mascaras extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btAgregar)
-                .addGap(259, 259, 259))
+                .addGap(120, 120, 120)
+                .addComponent(subtotal)
+                .addGap(105, 105, 105))
         );
         panelDatosLayout.setVerticalGroup(
             panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,8 +177,13 @@ public class mascaras extends javax.swing.JFrame {
                     .addComponent(filtroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(filtroDui, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btAgregar)
-                .addGap(30, 30, 30))
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout.createSequentialGroup()
+                        .addComponent(btAgregar)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout.createSequentialGroup()
+                        .addComponent(subtotal)
+                        .addGap(20, 20, 20))))
         );
 
         getContentPane().add(panelDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -223,6 +238,11 @@ public class mascaras extends javax.swing.JFrame {
        filtroTelefono.setText("");
     }//GEN-LAST:event_filtroTelefonoMouseClicked
 
+    private void btAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregarActionPerformed
+        float subt = Float.parseFloat(tDui.getText()) *Float.parseFloat( tDireccion.getText());
+        subtotal.setText(String.valueOf(subt));
+    }//GEN-LAST:event_btAgregarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,6 +293,7 @@ public class mascaras extends javax.swing.JFrame {
     private javax.swing.JTable jTabla;
     private javax.swing.JPanel panelDatos;
     private javax.swing.JPanel panelTabla;
+    private javax.swing.JLabel subtotal;
     private javax.swing.JTextField tDireccion;
     private javax.swing.JTextField tDui;
     private javax.swing.JTextField tNacimiento;
